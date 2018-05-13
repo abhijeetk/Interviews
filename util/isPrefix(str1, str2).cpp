@@ -1,3 +1,6 @@
+//http://thispointer.com/c-check-if-a-string-starts-with-an-another-given-string/
+//https://stackoverflow.com/questions/7913835/check-if-one-string-is-a-prefix-of-another
+
 #include <string>
 #include <iostream>
 #include <algorithm>
@@ -28,10 +31,25 @@ int isPrefixSTL(string str1, string str2) {
         return false;
 }
 
+/*
+* Case Sensitive Implementation of startsWith()
+* It checks if the string 'mainStr' starts with given string 'toMatch'
+*/
+bool startsWith(std::string mainStr, std::string toMatch)
+{
+    // std::string::find returns 0 if toMatch is found at starting
+    if (mainStr.find(toMatch) == 0)
+        return true;
+    else
+        return false;
+}
+
 int main() {
     cout << isPrefix("comp", "computer") << endl;
     cout << isPrefix("Pre", "Prefix") << endl;
     cout << isPrefixSTL("comp", "computer") << endl;
     cout << isPrefixSTL("Pre", "Prefix") << endl;
+    cout << startsWith("comp", "computer") << endl;
+    cout << startsWith("Pre", "Prefix") << endl;
     return 0;
 }
